@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>方块地图</title>
+  <style>
+    div{
+          border:2px
+    }
+  </style>
+</head>
+<body>
+<div id="tatr" style= " visibility:hidden;background-color:white;opacity:0.97 ; border:2px solid #F00; position: fixed ;width:500px;left: 15%; top: 40px">
+<div>升级</div>
+<pre>
+  <div style="border:2px solid #F00">
+	<p id="ase">您选择了点</p>
+	<button onclick="updr()">升级防御</button>
+	<p id="asee">您要花费10元升级经济使此格点每回合的金币产量增加2吗？</p>
+	<button onclick="updrr()">升级经济</button>
+	<button onclick="nos()">关闭</button>
+  </div>
+</pre>
+</div>
+
+  <div id="tat" style= " visibility:hidden;background-color:white;opacity:0.97 ; border:2px solid #F00; position: fixed ;width:500px;left: 15%; top: 40px">
+	
+<div style="border:2px solid #F00">
+<p id="as">您选择了点</p>
+<p>您投资<input id="mon">元</p>
+  <p>您使用<input id="bds">部队</p>
+<button onclick="yesa()">是</button><button onclick="nos()">否</button>
+</div>
+
+</div>
+  <table>
+	<tr>
+	  <th>项目</th>
+	  <th>金币</th>
+	  <th>部队</th>
+	  <th>领地</th>
+	</tr>
+	<tr>
+	  <th>数量</th>
+	  <th id="mos">金币</th>
+	  <th id="ars">部队</th>
+	  <th id="lds">领地</th>
+	</tr>
+  </table>
+  <button onclick="btn();">新游戏</button>
+  <button onclick="nern();">下一轮</button>
+  <button onclick="makar();">训练部队</button>
+  <div style="left:80%;position:fixed">
+	<pre
+	   id="msga">
+	  消息区
+	 </pre>
+	  
+	</div>
+  
+<div id="dv">
+<table width="80%" border="1" cellspacing="0"> </table>
+</div>
+ <script src="aa.js"></script>
+  <script>  
+  var fff=0;
+   setInterval(function () {
+	     var imgEle = document.getElementById("image");
+ 
+       // alert(imgEle.src);
+        // 方式1.
+        if (fff===0) {
+            imgEle.src = "1.png";
+			fff=1;
+        } else {
+            imgEle.src = "2.jpg";
+			fff=0;
+        }
+
+        // 方式2.
+        // switch (imgEle.src) {
+        //     case location.href.replace(/\/[^/]+$/, "") + "/img/bulbOn.gif":
+        //         imgEle.src = "img/landscape.jpg";
+        //         break;
+        //     case location.href.replace(/\/[^/]+$/, "") + "/img/landscape.jpg":
+        //         imgEle.src = "img/bulbOn.gif";
+        // }
+    }, 1e3);
+
+</script> 
+  <a href="https://swssoftwareshare.gitee.io/swswebbrowser/donate/fkdt.html"><img id="image" src="1.png" width="460" height="220"/></a>
+</body>
+ </html>
