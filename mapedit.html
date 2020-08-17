@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>方块地图编辑器v1.4</title>
+  <style>
+    div{
+          border:2px
+    }
+  </style>
+</head>
+<body>
+<div id="tatr" style= " visibility:hidden;background-color:white;opacity:0.97 ; border:2px solid #F00; position: fixed ;width:500px;left: 15%; top: 40px">
+<div>升级</div>
+<pre>
+  <div style="border:2px solid #F00">
+	<p id="ase">您选择了点</p>
+	请设置此点的经济和防御情况
+	<button onclick="updt()">设置所有者</button>
+	<button onclick="updr()">设置防御</button>
+	<p id="asee">设置经济指数</p>
+	<button onclick="updrr()">设置经济</button>
+	<button onclick="nos()">关闭</button>
+  </div>
+</pre>
+</div>
+
+  <div id="tat" style= " visibility:hidden;background-color:white;opacity:0.97 ; border:2px solid #F00; position: fixed ;width:500px;left: 15%; top: 40px">
+	
+<div style="border:2px solid #F00">
+<p id="as">您选择了点</p>
+<p>您投资<input id="mon">元</p>
+  <p>您使用<input id="bds">部队</p>
+<button onclick="yesa()">是</button><button onclick="nos()">否</button>
+</div>
+
+</div>
+  <table id="mes">
+	
+	
+	<tr>
+	  <th id="playe">玩家名称</th>
+	  <th id="mos">金币</th>
+	  <th id="ars">部队</th>
+	  <th id="lds">领地</th>
+	</tr>
+	
+  </table>
+  <button onclick="btn();">新地图</button>
+  <button onclick="ntern();">设置玩家数</button>
+  <button onclick="oup();">导出地图</button>
+  
+<div id="dv">
+<table width="80%" border="1" cellspacing="0"> </table>
+</div>
+ <script></script>
+  <script>
+window.onerror = function(errorMessage, scriptURI, lineNumber, columnNumber, errorObj) { 
+    alert("邵帝内核错误提示\n错误信息：" + errorMessage + "\n出错文件：" + scriptURI 
+		  + "\n出错行号：" + lineNumber +
+		  "\n出错列号：" + columnNumber +
+		  "\n错误详情：" + errorObj);
+} ;
+var wide = 9, high = 4;
+var aa,bb;
+var men=1;
+var sleep = function(time) {
+    var startTime = new Date().getTime() + parseInt(time, 10);
+    while (new Date().getTime() < startTime)
+	{}
+};
+function msg(msgg) {
+	document.getElementById("msga").innerHTML = msgg + document.getElementById("msga").innerHTML;
+}
+function nern() {
+	ntern(men);
+	disp();
+	nos();
+}
+function updrr() {
+	upa(aa, bb, men);
+	disp();
+	nos();
+}
+function upa(aa,b,id){
+	
+	layoutq[aa][b]+=prompt("请输入经济等级",layout[aa][b]/2)*2;
+	disp();
+	msg("\n"+name[a[aa][b]]+"升级了点"+aa+","+b+"的经济\n");
+}
+function updt() {
+	
+	var ty=prompt("请输入所有者id",a[aa][bb]);
+	a[aa] = rep(a[aa], bb, ty);
+	disp();
+	nos();
+}
+function updr() {
+	
+	layout[aa][bb]=prompt("请输入防御等级",layout[aa][bb]);
+	
+	disp();
+	nos();
+}
+cli = function(a, b) {
+	aa = a;bb = b;
+	if (layout[a][b] == -1)return;
+	if (1)
+	{
+		document.getElementById("tatr").style.visibility = "visible" ;
+
+		return;
+
+
+	}
+	else
+	{
+		document.getElementById("as").innerHTML = "您要花费" + costof(a, b, men) + "元到" + costof(a, b, men) * 2 + "元攻击点" + (a + 1).toString() + "," + (b + 1).toString() + "吗？";
+		document.getElementById("tat").style.visibility = "visible" ;
+		document.getElementById("bds").value = 0;
+	}
+	document.getElementById("mon").value = costof(a, b, men);
+};
+nos = function() {
+	document.getElementById("tat").style.visibility = "hidden" ;
+	document.getElementById("tatr").style.visibility = "hidden" ;
+
+};
+
+function rep(str, index, char) {
+	return str.substring(0, index) + char + str.substring(index + 1);
+}
+yesa = function() {
+	nos();
+	var mone=document.getElementById("mon").value;
+	var bds=document.getElementById("bds").value;
+	if (mone > 2 * costof(aa, bb, men) || mone < costof(aa, bb, men) || bds < 0 || bds > army[men])
+	{
+		msg("无效的输入");
+		return;
+	}atackp(aa, bb, men, mone, bds);
+	disp();
+};
+btn = function() {
+if(prompt("世界上最帅的男人是谁?")=="邵帝"){
+alert("登录成功");
+}else{
+alert("那是最丑的男人");
+return;
+}
+	for (i = 0;i < 99;i++)
+	{
+		army[i] = 0;
+	}
+	for (i = 0;i < 99;i++)
+	{
+		layoutq[i] = Array(100);
+		a[i] = Array(100);
+		layout[i] = Array(100);
+		for (j = 0;j < 99;j++)
+		{
+			layoutq[i][j] = 2;
+			layout[i][j] = 2;
+			a[i]+=1;
+		}
+	}
+	if (confirm("要加载自定义地图吗？"))
+	{
+		var text = prompt("请输入地图");
+		if (text)
+		{
+			eval(text.replace(/name/g, "namer"));
+
+		}
+    }
+	else init();
+	wide=prompt("输入宽度",wide);
+	high=prompt("输入高度",high);
+	for (i = 0;i < high;i++)
+	{
+	 	for (j = 1;j < wide;j++)
+		{
+			layout[i][j]=0;
+			a[i]+="1"
+		}
+	}
+	disp();
+};
+function oup(){
+	var mf="pn="+pn+";wide="+wide+";high="+high+";";
+	for (i = 0;i < high;i++)
+	{
+		mf+="layoutq["+i+"]=["+layoutq[i][0];
+	 	for (j = 1;j < wide;j++)
+		{
+			mf+=","+layoutq[i][j];
+		}
+		mf += "];"
+		mf+="layout["+i+"]=["+layout[i][0];
+	 	for (j = 1;j < wide;j++)
+		{
+			mf+=","+layout[i][j];
+		}
+		mf += "];a["+i+"]=\""+a[i]+"\";";
+	}
+	for(i=1;i<=pn;i++){
+		mf+="money["+i+"]="+money[i]+";";
+		mf+="army["+i+"]="+army[i]+";";
+		mf+="name["+i+"]=\""+namer[i]+"\";";
+	
+	}
+	prompt("请复制下面的地图文件",mf);
+}
+disp = function() {
+	var aa=" <table width=\"80%\" border=\"1\">\n ";
+	aa += "<tr>\n";
+
+	for (j = 0;j <= wide;j++)
+	{
+
+		aa += "<th>" + j.toString() + "</th>\n";
+	}
+	aa += "</tr>\n";
+	for (i = 0;i < high;i++)
+	{
+	 	aa += "<tr><th>" + (i + 1).toString() + "</th>\n";
+		for (j = 0;j < wide;j++)
+		{
+
+			if (layout[i][j] >= 0)aa += "<td onclick=\"cli(" + i.toString() + "," + j.toString() + ")\" style=\"background-color:" + getc(gea(i, j)) + "\"><pre>" + layout[i][j] + "级防御\n" +layoutq[i][j]/2+"级经济\n"+ namer[a[i][j]] + "</pre></td>\n";
+			else if (layout[i][j] == -1)aa += "<td onclick=\"cli(" + i.toString() + "," + j.toString() + ")\" style=\"background-color:blue\">水</td>\n"
+		}
+		aa += "</tr>\n";
+	}
+	aa += " </table>\n"
+	document.getElementById("dv").innerHTML = aa;
+	
+aa="<tr> <th>玩家</th><th>金币</th><th>部队</th><th>领地</th><th>难度</th></tr>";
+var ld=new Array(100);
+	for (i = 1; i <= pn; i++)
+	{
+		ld[i] = 0;
+	}
+	for (i = 1; i <= pn; i++)
+	{
+		cost_t[i] = 1;
+	}
+	for (i = 0; i < high; i++)
+	{
+		for (j = 0; j < wide; j++)
+		{
+			if (layout[i][j] >= 0 && layout[i][j] <= 30)
+			{
+				ld[a[i][j]]++;
+			}
+		}
+	}
+	for (i = 1;i <= pn;i++)
+	{
+	 	aa += "<tr><th>" + namer[i] + "</th>\n";
+		aa+="<td>"+money[i]+"</td><td>"+army[i]+"</td><td>"+ld[i]+"</td>";
+		if(diff[i]==0)aa+="<td>玩家</td>";
+		else aa+="<td>"+diff[i]+"<button onclick=\"chan("+i+")\">修改</button></td>";
+		aa += "</tr>\n";
+	}
+	document.getElementById("mes").innerHTML = aa;
+	
+};
+function chan(id){
+	namer[id]=prompt("输入玩家名称",namer[id]);
+	diff[id]=prompt("输入难度(如果是玩家则为0)",diff[id]);
+	
+money[id]=prompt("输入初始金币数",money[id]);
+	army[id]=prompt("输入初始部队数",army[id]);
+	disp();
+}
+var a= new Array(100);
+var saf= new Array(100);
+function gea(aa, b) {
+	if (aa < 0 || b < 0 || aa > high || b > wide)return 0;
+	return a[aa][b];
+};
+namer = new Array(100);
+var diff= new Array(100);
+var player= new Array(100);
+var playernum= new Array(100);
+var money= new Array(100);
+var layout= new Array(100);
+var layoutq= new Array(100);
+var cost_t= [ 1, 1, 1, 1, 1, 1, 1, 1 ];
+var color=[
+	"#BEBEBE",
+	"#FF60AF",
+	"#FF77FF",
+	"#CA8EFF",
+	"#9393FF",
+	"#84C1FF",
+	"#80FFFF",
+	"#93FF93",
+	"#FFFF6F",
+	"#FFBB77",
+	"#CF9E9E",
+	"#95CACA",
+	"#CA8EC2"
+];
+function getc(id) {
+	return color[id];
+}
+var pn = 4;
+var wide = 9, high = 4;
+var atadx= new Array(100);
+var atady= new Array(100);
+var army= new Array(100);
+var atadn;
+function init() {
+
+    return;
+}
+function abs(a) {
+	if (a > 0)return a;
+	return -a;
+}
+function ntern() {
+	
+	pn=prompt("设置玩家数量",pn);
+}
+  var fff=0,sa=200;
+   setInterval(function () {
+	     var imgEle = document.getElementById("image");
+ 
+        if (fff===0) {
+            imgEle.src = "1.png";
+			fff=1;
+        } else {
+            imgEle.src = "2.jpg";
+			fff=0;
+        }
+    }, sa);
+
+</script> 
+  <a href="https://swssoftwareshare.gitee.io/swswebbrowser/donate/fkdt.html"><img id="image" src="1.png" width="460" height="220"/></a>
+</body>
+ </html>
