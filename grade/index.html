@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>方块地图等级考试</title>
+  <style>
+    div{
+          border:2px
+    }
+  </style>
+</head>
+<body>
+  <button onclick="alert(document.getElementById(11).style.backgroundColor)">a</button>
+<div id="tatr" style= " visibility:hidden;background-color:white;opacity:0.97 ; border:2px solid #F00; position: fixed ;width:500px;left: 15%; top: 40px">
+<div>升级</div>
+<pre>
+  <div style="border:2px solid #F00">
+	<p id="ase">您选择了点</p>
+	<button onclick="updr()">升级防御</button>
+	<p id="asee">您要花费10元升级经济使此格点每回合的金币产量增加2吗？</p>
+	<button onclick="updrr()">升级经济</button>
+	<button onclick="nos()">关闭</button>
+  </div>
+</pre>
+</div>
+
+  <div id="tat" style= " visibility:hidden;background-color:white;opacity:0.97 ; border:2px solid #F00; position: fixed ;width:500px;left: 15%; top: 40px">
+	
+<div style="border:2px solid #F00">
+<p id="as">您选择了点</p>
+<p>您投资<input id="mon">元</p>
+  <p>您使用<input id="bds">部队</p>
+<button onclick="yesa()">是</button><button onclick="nos()">否</button>
+</div>
+
+</div>
+  <table id="mes">
+	
+	
+	<tr>
+	  <th id="playe">玩家名称</th>
+	  <th id="mos">金币</th>
+	  <th id="ars">部队</th>
+	  <th id="lds">领地</th>
+	</tr>
+	
+  </table>
+  <button onclick="btn();">新游戏</button>
+  <button onclick="nern();">下一轮</button>
+  <button onclick="makar();">训练部队</button>
+  <div style="left:80%;position:fixed;opacity:60%;background-color:white">
+	<pre
+	   id="msga">
+	  消息区
+	 </pre>
+	  
+	</div>
+  
+<div id="dv">
+<table width="80%" border="1" cellspacing="0"> </table>
+</div>
+ <script src="aa.js"></script>
+  <script>
+	
+</script> 
+</body>
+ </html>
