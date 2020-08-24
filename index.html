@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>邵帝块图</title>
+  <style>
+    div{
+          border:2px
+    }
+  </style>
+</head>
+<body>
+  <div id="fs" style="opacity:0.4;visibility:hidden;left:0px;width:100%;top:0px;position:fixed;height:11000px;background-color:black">f</div>
+  
+
+<div id="tatr" style= " visibility:hidden;background-color:white;opacity:0.97 ; border:2px solid #F00; position: fixed ;width:500px;left: 15%; top: 40px">
+<h1>升级</h1>
+<p><div>
+	<p id="ase">您选择了点</p><button onclick="updr()">升级防御</button>
+	<p id="asee">您要花费10元升级经济使此格点每回合的金币产量增加2吗？</p><button onclick="updrr()">升级经济</button>
+	<div></div>
+<button onclick="nos()">关闭</button>
+  </div>
+</p>
+</div>
+
+  <div id="tat" style= " visibility:hidden;background-color:white;opacity:0.97 ; border:2px solid #F00; position: fixed ;width:500px;left: 15%; top: 40px">
+	
+<div style="border:2px solid #F00">
+  <h1>攻击</h1>
+<p id="as">您选择了点</p>
+<div id="aaa">
+<p>您投资<input id="mon">元</p>
+  <p>您使用<input id="bds">部队</p>
+</div>
+<button onclick="yesa()">是</button><button onclick="nos()">否</button>
+
+</div>
+</div>
+  <table id="mes">
+	
+	
+	<tr>
+	  <th id="playe">玩家名称</th>
+	  <th id="mos">金币</th>
+	  <th id="ars">部队</th>
+	  <th id="lds">领地</th>
+	</tr>
+	
+  </table>
+  <div id="cont" style="left:35%;width:60%;position:fixed;top:0;background-color:white">
+	<img onclick="btn();" src="a.png" style="width:100px;height:100px"/>
+	<img onclick="nern();" src="b.png" style="width:100px;height:100px"/>
+	<img onclick="makar();" src="c.png" style="width:100px;height:100px"/>
+  </div>
+  
+  <div style="left:80%;position:fixed;opacity:0.9;background-color:white">
+	<h3>消息区</h3>
+
+	<button style="left:99%;top:49%;position:fixed"onclick="hos">|</button>
+	<pre
+	   id="msga">
+	  
+	 </pre>
+	  
+	</div>
+  
+<div id="dv">
+<table width="80%" border="1" cellspacing="0"> </table>
+</div>
+  <h1 id="tmm" style="visibility:hidden;left:0px;width:100%;top:500px;position:fixed;background-color:white;text-align:center">f</h1>
+  <div id="gui" >
+	<div style="opacity:0.5;position:fixed;top:0px">
+	<div id="tp" style="left:0px;width:35%;position:fixed;height:1000px;background-color:black">f</div>
+	<div id="tp" style="left:0px;width:100%;position:fixed;top:100px;height:10000px;background-color:black">f</div>
+	<div id="tp" style="left:47%;width:1000px;position:fixed;height:1000px;background-color:black">f</div>
+	<div id="tp" style="left:0%;width:35%;position:fixed;height:10px;background-color:black">f</div>
+	</div>
+	<div id="tp" style="left:35%;position:fixed;top:110px;background-color:white">
+	
+	  <p id="nt" style="opacity:1">点击这里可以开始新的游戏</p>
+	  <button onclick="hid()">确定</button>
+	</div>
+  </div>
+
+  <div id="guii" style="visibility:hidden">
+	<div style="opacity:0.5;position:fixed;top:0px">
+	  <div id="tp" style="left:0px;width:47%;position:fixed;height:1000px;background-color:black">f</div>
+	  <div id="tp" style="left:0px;width:100%;position:fixed;top:100px;height:10000px;background-color:black">f</div>
+	  <div id="tp" style="left:57%;width:1000px;position:fixed;height:1000px;background-color:black">f</div>
+	  <div id="tp" style="left:0%;width:35%;position:fixed;height:10px;background-color:black">f</div>
+	</div>
+	<div id="tp" style="left:45%;position:fixed;top:110px;background-color:white">
+
+	  <p id="nt" style="opacity:1">点击这里以结束本回合操作</p>
+	  <button onclick="hidd()">确定</button>
+	</div>
+  </div>
+  <div id="guiii" style="visibility:hidden">
+	<div style="opacity:0.5;position:fixed;top:0px">
+	  <div id="tp" style="left:0px;width:57%;position:fixed;height:1000px;background-color:black">f</div>
+	  <div id="tp" style="left:0px;width:100%;position:fixed;top:100px;height:10000px;background-color:black">f</div>
+	  <div id="tp" style="left:67%;width:1000px;position:fixed;height:1000px;background-color:black">f</div>
+	  <div id="tp" style="left:0%;width:35%;position:fixed;height:10px;background-color:black">f</div>
+	</div>
+	<div id="tp" style="left:55%;position:fixed;top:110px;background-color:white">
+
+	  <p id="nt" style="opacity:1">点击这里以训练攻击所需部队</p>
+	  <button onclick="hiddd()">确定</button>
+	</div>
+  </div>
+  <div id="guiiii" style="visibility:hidden">
+	<div style="opacity:0.5;position:fixed;top:0px">
+	  <div id="tp" style="left:0px;width:2%;position:fixed;height:1000px;background-color:black">f</div>
+	  <div id="tp" style="left:0px;width:100%;position:fixed;top:0px;height:100px;background-color:black">f</div>
+	  <div id="tp" style="left:97%;width:1000px;position:fixed;height:1000px;background-color:black">f</div>
+	 </div>
+	<div id="tp" style="left:45%;position:fixed;top:10px;background-color:white">
+
+	  <p id="nt" style="opacity:1">这是地图，您可以点击您自己的格点以升级或点击其他玩家与您的领地相邻的格点以攻击</p>
+	  <button onclick="hidddd()">确定</button>
+	</div>
+  </div>
+ <script src="aa.js"></script>
+  <script>
+function hidddd(){
+document.getElementById("guiiii").innerHTML ="";
+}
+function hiddd(){
+document.getElementById("guiii").innerHTML ="";
+document.getElementById("guiiii").style.visibility = "visible" ;
+		
+}
+function hidd(){
+document.getElementById("guii").innerHTML ="";
+document.getElementById("guiii").style.visibility = "visible" ;
+		
+}
+function hid(){
+document.getElementById("gui").innerHTML ="";
+document.getElementById("guii").style.visibility = "visible" ;
+		
+}
+</script> 
+</body>
+ </html>
